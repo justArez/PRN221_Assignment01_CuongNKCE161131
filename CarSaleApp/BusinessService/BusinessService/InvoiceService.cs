@@ -1,23 +1,51 @@
 ﻿
 using BusinessObject;
+using DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess
+namespace BusinessService
 {
     public class InvoiceService: IInvoiceService
     {
-        public void AddInvoice(Invoice invoice) => InvoiceRepo.Instance.AddInvoice(invoice);
+        public InvoiceService() { }
 
-        public void DeleteInvoiceById(string id) => InvoiceRepo.Instance.DeleteInvoiceById(id);
+        private InvoiceRepo invoiceRepo;
 
-        public Invoice GetInvoiceById(string id) => InvoiceRepo.Instance.GetInvoiceById(id);
+        private InvoiceRepo _invoiceRepo()
+        {
+            if(this.invoiceRepo == null)
+            {
+                this.invoiceRepo = new InvoiceRepo();
+            }
+            return this.invoiceRepo;
+        }
 
-        public IEnumerable<Invoice> GetInvoiceList() => InvoiceRepo.Instance.GetInvoiceList();
+        public void AddInvoice(Invoice invoice)
+        {
+            _invoiceRepo().AddInvoice(invoice);
+        }
 
-        public void UpdateInvoice(Invoice invoice) => InvoiceRepo.Instance.UpdateInvoice(invoice);
+        public void DeleteInvoiceById(string id)
+        {
+            _invoiceRepo().DeleteInvoiceById(id);
+        }
+        public Invoice GetInvoiceById(string id)
+        {
+            return _invoiceRepo().GetInvoiceById(id);
+        }
+
+        public IEnumerable<Invoice> GetInvoiceList()
+        {
+            return _invoiceRepo().GetInvoiceList();
+        }
+
+        public void UpdateInvoice(Invoice invoice)
+        {
+            _invoiceRepo().UpdateInvoice(invoice);
+        }
     }
 }

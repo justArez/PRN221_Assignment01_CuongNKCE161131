@@ -21,7 +21,7 @@ namespace DataAccess
             }
         }
 
-        public IEnumerable<User> GetUserList()
+        public IEnumerable<User> GetList()
         {
             var members = new List<User>();
             try
@@ -36,7 +36,7 @@ namespace DataAccess
             return members;
         }
 
-        public User GetUserByID(string userId)
+        public User GetById(string userId)
         {
             User user = null;
             try
@@ -58,9 +58,24 @@ namespace DataAccess
             {
                 using var context = new CarSaleManagementDbContext();
                 user = context.Users.SingleOrDefault(u => u.Username == username);
-                if (!user.Password.Equals(password)){
-                    throw new Exception("Wrong password.");
+                if (user != null){
+                    user = user.Password.Equals(password) ? user : new User();
                 }
+                return user;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public User GetUserByUsername(string username)
+        {
+            User user = null;
+            try
+            {
+                using var context = new CarSaleManagementDbContext();
+                user = context.Users.SingleOrDefault(u => u.Username == username);
             }
             catch (Exception e)
             {
@@ -69,12 +84,12 @@ namespace DataAccess
             return user;
         }
 
-        public void AddUser(User user)
+        public void Add(User user)
         {
             try
             {
-                User _mem = GetUserByID(user.Userid);
-                if (_mem == null)
+                User _user = GetById(user.Userid);
+                if (_user == null)
                 {
                     using var context = new CarSaleManagementDbContext();
                     context.Users.Add(user);
@@ -95,11 +110,34 @@ namespace DataAccess
         {
             try
             {
-                User _mem = GetUserByID(user.Userid);
-                if (_mem != null)
+                User _user = GetById(user.Userid);
+                if (_user != null)
                 {
                     using var context = new CarSaleManagementDbContext();
                     context.Users.Update(user);
+                    context.SaveChanges();
+                }
+                else
+                {
+                    throw new Exception("The User does not exist.");
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public void DeactivateUser(string id)
+        {
+            try
+            {
+                User _user = GetById(id);
+                if (_user != null)
+                {
+                    using var context = new CarSaleManagementDbContext();
+                    _user.IsActive = false;
+                    context.Users.Update(_user);
                     context.SaveChanges();
                 }
                 else
@@ -117,7 +155,7 @@ namespace DataAccess
         {
             try
             {
-                User _mem = GetUserByID(userId);
+                User _mem = GetById(userId);
                 if (_mem != null)
                 {
                     using var context = new CarSaleManagementDbContext();

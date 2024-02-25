@@ -25,15 +25,18 @@ public partial class CarSaleManagementDbContext : DbContext
     public virtual DbSet<Role> Roles { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer(GetConnectionString());
+        
+
     private string GetConnectionString()
     {
         IConfiguration config = new ConfigurationBuilder()
              .SetBasePath(Directory.GetCurrentDirectory())
                     .AddJsonFile("appsettings.json", true, true)
                     .Build();
-        var strConn = config["ConnectionStrings: DefaultConnectionStringDB"];
+        var strConn = config["ConnectionStrings:DefaultConnectionStringDB"];
 
         return strConn;
     }

@@ -10,30 +10,41 @@ namespace DataAccess
 {
     public class InvoiceRepo: IInvoiceRepo
     {
-        private static InvoiceRepo instance = null;
-        private static readonly object instanceLock = new object();
-        public static InvoiceRepo Instance
+        public InvoiceRepo() { }
+
+        private InvoiceDAO invoiceDAO = null;
+       
+        private InvoiceDAO _invoiceDAO()
         {
-            get
+            if (this.invoiceDAO == null)
             {
-                lock (instanceLock)
-                {
-                    if (instance == null)
-                    {
-                        instance = new InvoiceRepo();
-                    }
-                }
-                return instance;
+                this.invoiceDAO = new InvoiceDAO();
             }
+            return this.invoiceDAO;
         }
-        public void AddInvoice(Invoice invoice) => InvoiceDAO.Instance.Add(invoice);
 
-        public void DeleteInvoiceById(string id) => InvoiceDAO.Instance.Delete(id);
+        public void AddInvoice(Invoice invoice)
+        {
+            _invoiceDAO().Add(invoice);
+        }
 
-        public Invoice GetInvoiceById(string id) => InvoiceDAO.Instance.GetInvoiceByID(id);
+        public void DeleteInvoiceById(string id)
+        {
+            _invoiceDAO().Delete(id);
+        }
 
-        public IEnumerable<Invoice> GetInvoiceList() => InvoiceDAO.Instance.GetInvoiceList();
+        public Invoice GetInvoiceById(string id)
+        {
+            return _invoiceDAO().GetById(id);
+        }
+        public IEnumerable<Invoice> GetInvoiceList()
+        {
+            return _invoiceDAO().GetList();
+        }
 
-        public void UpdateInvoice(Invoice invoice) => InvoiceDAO.Instance.Update(invoice);
+        public void UpdateInvoice(Invoice invoice)
+        {
+            _invoiceDAO().Update(invoice);
+        }
     }
 }

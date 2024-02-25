@@ -1,23 +1,50 @@
 ﻿
 using BusinessObject;
+using DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess
+namespace BusinessService
 {
     public class ManufacturerService: IManufacturerService
     {
-        public void AddManufacturer(Manufacturer manufacturer) => ManufacturerRepo.Instance.AddManufacturer(manufacturer);
+        public ManufacturerService() { }
 
-        public void DeleteManufacturerById(string id) => ManufacturerRepo.Instance.DeleteManufacturerById(id);
+        private ManufacturerRepo manufacturerRepo = null;
 
-        public Manufacturer GetManufacturerById(string id) => ManufacturerRepo.Instance.GetManufacturerById(id);
+        private ManufacturerRepo _manufacturerRepo()
+        {
+            if (manufacturerRepo == null)
+            {
+                this.manufacturerRepo = new ManufacturerRepo();
+            }
+            return this.manufacturerRepo;
+        }
 
-        public IEnumerable<Manufacturer> GetManufacturerList() => ManufacturerRepo.Instance.GetManufacturerList();
+        public void AddManufacturer(Manufacturer manufacturer) {
+            _manufacturerRepo().AddManufacturer(manufacturer);
+        }
 
-        public void UpdateManufacturer(Manufacturer manufacturer) => ManufacturerRepo.Instance.UpdateManufacturer(manufacturer);
+        public void DeleteManufacturerById(string id)
+        {
+            _manufacturerRepo().DeleteManufacturerById(id);
+        }
+
+        public Manufacturer GetManufacturerById(string id)
+        {
+            return _manufacturerRepo().GetManufacturerById(id);
+        }
+        public IEnumerable<Manufacturer> GetManufacturerList()
+        {
+            return _manufacturerRepo().GetManufacturerList();
+        }
+
+        public void UpdateManufacturer(Manufacturer manufacturer)
+        {
+           _manufacturerRepo().UpdateManufacturer(manufacturer);
+        }
     }
 }

@@ -10,30 +10,41 @@ namespace DataAccess
 {
     public class ManufacturerRepo: IManufacturerRepo
     {
-        private static ManufacturerRepo instance = null;
-        private static readonly object instanceLock = new object();
-        public static ManufacturerRepo Instance
+        public ManufacturerRepo() { }   
+
+        private ManufacturerDAO manufacturerDAO = null;
+
+        private ManufacturerDAO _manufacturerDAO()
         {
-            get
+            if (this.manufacturerDAO == null)
             {
-                lock (instanceLock)
-                {
-                    if (instance == null)
-                    {
-                        instance = new ManufacturerRepo();
-                    }
-                }
-                return instance;
+                this.manufacturerDAO = new ManufacturerDAO();
             }
+            return this.manufacturerDAO;
         }
-        public void AddManufacturer(Manufacturer manufacturer) => ManufacturerDAO.Instance.Add(manufacturer);
 
-        public void DeleteManufacturerById(string id) => ManufacturerDAO.Instance.Delete(id);
+        public void AddManufacturer(Manufacturer manufacturer) {
+            _manufacturerDAO().Add(manufacturer);
+        }
 
-        public Manufacturer GetManufacturerById(string id) => ManufacturerDAO.Instance.GetManufacturerByID(id);
+        public void DeleteManufacturerById(string id)
+        {
+            _manufacturerDAO().Delete(id);
+        }
 
-        public IEnumerable<Manufacturer> GetManufacturerList() => ManufacturerDAO.Instance.GetManufacturerList();
+        public Manufacturer GetManufacturerById(string id)
+        {
+            return _manufacturerDAO().GetById(id);
+        }
 
-        public void UpdateManufacturer(Manufacturer manufacturer) => ManufacturerDAO.Instance.Update(manufacturer);
+        public IEnumerable<Manufacturer> GetManufacturerList()
+        {
+            return _manufacturerDAO().GetList();
+        }
+
+        public void UpdateManufacturer(Manufacturer manufacturer)
+        {
+            _manufacturerDAO().Update(manufacturer);
+        }
     }
 }

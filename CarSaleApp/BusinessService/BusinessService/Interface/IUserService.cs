@@ -1,6 +1,6 @@
 ﻿using BusinessObject;
 
-namespace DataAccess
+namespace BusinessService
 {
     public interface IUserService
     {
@@ -15,5 +15,9 @@ namespace DataAccess
         public IEnumerable<User> GetUserList();
 
         public void UpdateUser(User user);
+
+        public void DeactivateUser(string id);
+
+        public User GetUserByUsername(string username);
     }
 }

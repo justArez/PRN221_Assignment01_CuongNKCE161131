@@ -26,8 +26,7 @@ namespace DataAccess
             }
         }
 
-
-        public IEnumerable<Car> GetCarList()
+        public IEnumerable<Car> GetList()
         {
             var carList = new List<Car>();
             try
@@ -42,7 +41,7 @@ namespace DataAccess
             return carList;
         }
 
-        public Car GetCarByID(string carId)
+        public Car GetByID(string carId)
         {
             Car car = null;
             try
@@ -61,7 +60,7 @@ namespace DataAccess
         {
             try
             {
-                Car _car = GetCarByID(car.Carid);
+                Car _car = GetByID(car.Carid);
                 if (_car == null)
                 {
                     using var context = new CarSaleManagementDbContext();
@@ -83,7 +82,7 @@ namespace DataAccess
         {
             try
             {
-                Car _car = GetCarByID(car.Carid);
+                Car _car = GetByID(car.Carid);
                 if (_car != null)
                 {
                     using var context = new CarSaleManagementDbContext();
@@ -105,7 +104,7 @@ namespace DataAccess
         {
             try
             {
-                Car _car = GetCarByID(carId);
+                Car _car = GetByID(carId);
                 if (_car != null)
                 {
                     using var context = new CarSaleManagementDbContext();

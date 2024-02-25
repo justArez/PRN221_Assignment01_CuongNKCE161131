@@ -1,0 +1,30 @@
+﻿<Window x:Class="CarSaleWPFApp.HomepageWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarSaleWPFApp"
+        mc:Ignorable="d"
+        Title="Home - JDM-CSM" Height="407" Width="326">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="88*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="btnCar" Content="Cars" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0,0,0,0" FontSize="18" FontFamily="Space Grotesk Medium" Margin="65,0,0,0" Background="#FFB8FFAA" Grid.Column="1" Click="btnCar_Click"/>
+        <Label x:Name="lblTitle" Content="JDM-CSM" Margin="-33,39,0,0" VerticalAlignment="Top" Height="65" Width="392" FontFamily="Culonite Bold" FontSize="48" FontWeight="ExtraBold" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblSubTitle" Content="Japanese Domestic Market - Car Sale Management" HorizontalAlignment="Left" Margin="35,88,0,0" VerticalAlignment="Top" FontWeight="Light" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnInvoice" Content="History" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="0,0,0,0" FontSize="18" FontFamily="Space Grotesk Medium" Background="#FFB8FFAA" Grid.Column="1" Margin="51,224,0,0" Click="btnInvoice_Click"/>
+        <Button x:Name="btnManu" Content="Manufacturer" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="0,0,0,0" FontSize="18" FontFamily="Space Grotesk Medium" Background="#FFB8FFAA" Margin="23,267,0,0" Grid.Column="1" Click="btnManu_Click"/>
+        <Button x:Name="btnUser" Content="User" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="0,0,0,0" FontSize="18" FontFamily="Space Grotesk Medium" Background="#FFB8FFAA" Margin="63,310,0,0" Grid.Column="1" Click="btnUser_Click"/>
+        <Button x:Name="btnClose" Content="Close" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="0,0,0,0" FontFamily="Space Grotesk Medium" Background="#FFEDA6A6" Margin="200,362,0,0" Grid.Column="1" Click="btnClose_Click"/>
+        <Button x:Name="btnLogout" Content="Logout" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="0,0,0,0" FontFamily="Space Grotesk Medium" Background="#FFACF0F9" Margin="137,362,0,0" Grid.Column="1" Click="btnLogout_Click"/>
+        <Rectangle x:Name="panUserInfo" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="45" Margin="29,122,0,0" VerticalAlignment="Top" Width="270" StrokeEndLineCap="Round" Fill="#FFEDEDED" StrokeLineJoin="Round" StrokeStartLineCap="Round" StrokeThickness="2" Stroke="#FFD4D4D4" StrokeMiterLimit="-21" StrokeDashArray="2" StrokeDashCap="Round">
+            <Rectangle.Style>
+                <Style/>
+            </Rectangle.Style>
+        </Rectangle>
+        <Label Content="User Info" HorizontalAlignment="Left" Margin="35,118,0,0" VerticalAlignment="Top" Background="White" FontSize="8" Height="8" Width="35" FontFamily="Space Grotesk"/>
+
+    </Grid>
+</Window>

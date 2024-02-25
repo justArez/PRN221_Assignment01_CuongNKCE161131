@@ -8,32 +8,42 @@ using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    public class CarRepo: ICarRepo
+    public class CarRepo : ICarRepo
     {
-        private static CarRepo instance = null;
-        private static readonly object instanceLock = new object();
-        public static CarRepo Instance
-        {
-            get
-            {
-                lock (instanceLock)
-                {
-                    if (instance == null)
-                    {
-                        instance = new CarRepo();
-                    }
-                }
-                return instance;
+
+        public CarRepo() { }
+
+        private CarDAO carDAO = null;
+
+        private CarDAO _carDAO() {
+            if (this.carDAO == null) {
+                this.carDAO = new CarDAO();
             }
+            return this.carDAO; 
         }
-        public void AddCar(Car car) => CarDAO.Instance.Add(car);
 
-        public void DeleteCarById(string id) => CarDAO.Instance.Delete(id);
+        public void AddCar(Car car) {
+            _carDAO().Add(car);
+        }
 
-        public Car GetCarById(string id) => CarDAO.Instance.GetCarByID(id);
+        public void DeleteCarById(string id)
+        {
+            _carDAO().Delete(id);
+        }
 
-        public IEnumerable<Car> GetCarList() => CarDAO.Instance.GetCarList();
+        public Car GetCarById(string id)
+        {
+            return _carDAO().GetByID(id);
+        }
 
-        public void UpdateCar(Car car) => CarDAO.Instance.Update(car);
+        public IEnumerable<Car> GetCarList()
+        {
+            return _carDAO().GetList();
+        }
+
+        public void UpdateCar(Car car)
+        {
+            _carDAO().Update(car);
+        }
     }
 }

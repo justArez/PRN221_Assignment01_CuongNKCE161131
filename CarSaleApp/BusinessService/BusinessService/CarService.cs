@@ -5,14 +5,43 @@ namespace BusinessService
 {
     public class CarService: ICarService
     {
-        public void AddCar(Car car) => CarRepo.Instance.AddCar(car);
+        public CarService() { }
 
-        public void DeleteCarById(string id) => CarRepo.Instance.DeleteCarById(id);
+        private CarRepo carRepo = null;
 
-        public Car GetCarById(string id) => CarRepo.Instance.GetCarById(id);
+        private CarRepo _carRepo()
+        {
+            if (this.carRepo == null)
+            {
+                this.carRepo = new CarRepo();
+            }
+            return this.carRepo;
+        }
 
-        public IEnumerable<Car> GetCarList() => CarRepo.Instance.GetCarList();
+        public void AddCar(Car car)
+        {
+            _carRepo().AddCar(car);
+        }
+           
 
-        public void UpdateCar(Car car) => CarRepo.Instance.UpdateCar(car);
+        public void DeleteCarById(string id)
+        {
+            _carRepo().DeleteCarById(id);
+        }
+
+        public Car GetCarById(string id)
+        {
+            return _carRepo().GetCarById(id);
+        }
+
+        public IEnumerable<Car> GetCarList()
+        {
+            return _carRepo().GetCarList();
+        }
+
+        public void UpdateCar(Car car)
+        {
+            _carRepo().UpdateCar(car);
+        }
     }
 }

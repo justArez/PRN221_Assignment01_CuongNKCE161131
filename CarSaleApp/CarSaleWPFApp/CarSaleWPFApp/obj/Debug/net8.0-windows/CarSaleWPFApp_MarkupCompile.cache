@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\Code\PRN221\Assignment01_CuongNKCE161131\CarSaleApp\CarSaleWPFApp\CarSaleWPFApp\obj\Debug\net8.0-windows\
+E:\Code\PRN221\PRN221_Assignment01_CuongNKCE161131\CarSaleApp\CarSaleWPFApp\CarSaleWPFApp\obj\Debug\net8.0-windows\
 CarSaleWPFApp
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-E:\Code\PRN221\Assignment01_CuongNKCE161131\CarSaleApp\CarSaleWPFApp\CarSaleWPFApp\App.xaml
-2-216653475
+E:\Code\PRN221\PRN221_Assignment01_CuongNKCE161131\CarSaleApp\CarSaleWPFApp\CarSaleWPFApp\App.xaml
+6-81645926
 
-576031905
-1981451641563
-LoginWindow.xaml;MainWindow.xaml;
+9-1345054266
+250-1329138430
+CarWindow.xaml;HomepageWindow.xaml;InvoiceWindow.xaml;LoginWindow.xaml;ManufacturerWindow.xaml;UserWindow.xaml;
 
 False
 

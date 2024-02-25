@@ -27,7 +27,7 @@ namespace DataAccess
         }
 
 
-        public IEnumerable<Manufacturer> GetManufacturerList()
+        public IEnumerable<Manufacturer> GetList()
         {
             var manuList = new List<Manufacturer>();
             try
@@ -42,7 +42,7 @@ namespace DataAccess
             return manuList;
         }
 
-        public Manufacturer GetManufacturerByID(string manuId)
+        public Manufacturer GetById(string manuId)
         {
             Manufacturer manu = null;
             try
@@ -61,7 +61,7 @@ namespace DataAccess
         {
             try
             {
-                Manufacturer _manu = GetManufacturerByID(manu.ManufacturerId);
+                Manufacturer _manu = GetById(manu.ManufacturerId);
                 if (_manu == null)
                 {
                     using var context = new CarSaleManagementDbContext();
@@ -83,7 +83,7 @@ namespace DataAccess
         {
             try
             {
-                Manufacturer _manu = GetManufacturerByID(manu.ManufacturerId);
+                Manufacturer _manu = GetById(manu.ManufacturerId);
                 if (_manu != null)
                 {
                     using var context = new CarSaleManagementDbContext();
@@ -105,7 +105,7 @@ namespace DataAccess
         {
             try
             {
-                Manufacturer _manu = GetManufacturerByID(manuId);
+                Manufacturer _manu = GetById(manuId);
                 if (_manu != null)
                 {
                     using var context = new CarSaleManagementDbContext();

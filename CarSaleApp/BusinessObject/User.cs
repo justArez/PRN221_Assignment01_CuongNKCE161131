@@ -20,4 +20,14 @@ public partial class User
     public virtual ICollection<Invoice> Invoices { get; set; } = new List<Invoice>();
 
     public virtual Role Role { get; set; } = null!;
+
+    public User() { }
+
+    public User(string userId, string username, string password) {
+        this.Userid = userId;
+        this.Username = username;
+        this.Password = password;
+        this.IsActive = true;
+        this.Roleid = "2";
+    }
 }

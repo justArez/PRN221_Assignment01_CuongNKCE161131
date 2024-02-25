@@ -26,7 +26,7 @@ namespace DataAccess
             }
         }
 
-        public IEnumerable<Invoice> GetInvoiceList()
+        public IEnumerable<Invoice> GetList()
         {
             var orders = new List<Invoice>();
             try
@@ -41,7 +41,7 @@ namespace DataAccess
             return orders;
         }
 
-        public Invoice GetInvoiceByID(string invoiceId)
+        public Invoice GetById(string invoiceId)
         {
             Invoice invoice = null;
             try
@@ -60,7 +60,7 @@ namespace DataAccess
         {
             try
             {
-                Invoice _invoice = GetInvoiceByID(invoice.Invoiceid);
+                Invoice _invoice = GetById(invoice.Invoiceid);
                 if (_invoice == null)
                 {
                     using var context = new CarSaleManagementDbContext();
@@ -82,7 +82,7 @@ namespace DataAccess
         {
             try
             {
-                Invoice _order = GetInvoiceByID(invoice.Invoiceid);
+                Invoice _order = GetById(invoice.Invoiceid);
                 if (_order != null)
                 {
                     using var context = new CarSaleManagementDbContext();
@@ -104,7 +104,7 @@ namespace DataAccess
         {
             try
             {
-                Invoice _invoice = GetInvoiceByID(invoiceId);
+                Invoice _invoice = GetById(invoiceId);
                 if (_invoice != null)
                 {
                     using var context = new CarSaleManagementDbContext();

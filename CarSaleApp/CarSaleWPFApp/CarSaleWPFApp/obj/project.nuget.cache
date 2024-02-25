@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "3okQZ0d010MnlyVr+K4QAhegX6S0Evg4vB6BV1SJJYxupR0I/VcUh+DqrzsmyCx0dpqkIyXHlL9GAT25VxtWQA==",
+  "dgSpecHash": "7bZuvPLjSy1gYXOGWs07TJNCSFWoSXPVhXC03X3Afi94DePlyy9/Eo1kYrdOHhPwf/29PbQhi0zaxTjVYs/ktQ==",
   "success": true,
   "projectFilePath": "E:\\Code\\PRN221\\PRN221_Assignment01_CuongNKCE161131\\CarSaleApp\\CarSaleWPFApp\\CarSaleWPFApp\\CarSaleWPFApp.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\grisg\\.nuget\\packages\\adonisui\\1.17.1\\adonisui.1.17.1.nupkg.sha512",
+    "C:\\Users\\grisg\\.nuget\\packages\\adonisui.classictheme\\1.17.1\\adonisui.classictheme.1.17.1.nupkg.sha512",
     "C:\\Users\\grisg\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\grisg\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
     "C:\\Users\\grisg\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
@@ -66,7 +68,8 @@
     "C:\\Users\\grisg\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
     "C:\\Users\\grisg\\.nuget\\packages\\system.text.json\\8.0.0\\system.text.json.8.0.0.nupkg.sha512",
     "C:\\Users\\grisg\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "C:\\Users\\grisg\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
+    "C:\\Users\\grisg\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
+    "C:\\Users\\grisg\\.nuget\\packages\\wpf-ui\\3.0.0\\wpf-ui.3.0.0.nupkg.sha512"
   ],
   "logs": []
 }

@@ -7,15 +7,42 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="CarWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="HomepageWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="InvoiceWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="LoginWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ManufacturerWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="CarWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="HomepageWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="InvoiceWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="LoginWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MainWindow.xaml">
+    <Page Update="ManufacturerWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

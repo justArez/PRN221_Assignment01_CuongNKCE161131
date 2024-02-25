@@ -1,19 +1,60 @@
 ﻿using BusinessObject;
+using DataAccess;
 
-namespace DataAccess
+namespace BusinessService
 {
     public class UserService: IUserService
     {
-        public void AddUser(User user) => UserRepo.Instance.AddUser(user);
+        public UserService() { }
 
-        public void DeleteUserById(string id) => UserRepo.Instance.DeleteUserById(id);
+        private UserRepo userRepo = null;
 
-        public User GetUserById(string id) => UserRepo.Instance.GetUserById(id);
+        private UserRepo _userRepo()
+        {
+            if (this.userRepo == null)
+            {
+                this.userRepo = new UserRepo();
+            }
+            return this.userRepo;
+        }
 
-        public User AuthenticateUser(string username, string password) => UserRepo.Instance.AuthenticateUser(username, password);
+        public void AddUser(User user)
+        {
+            _userRepo().AddUser(user);
+        }
 
-        public IEnumerable<User> GetUserList() => UserRepo.Instance.GetUserList();
+        public void DeleteUserById(string id)
+        {
+            _userRepo().DeleteUserById(id);
+        }
 
-        public void UpdateUser(User user) => UserRepo.Instance.UpdateUser(user);
+        public User GetUserById(string id)
+        {
+            return _userRepo().GetUserById(id);
+        }
+
+        public User AuthenticateUser(string username, string password)
+        {
+            return _userRepo().AuthenticateUser(username, password);
+        }
+
+        public IEnumerable<User> GetUserList()
+        {
+            return _userRepo().GetUserList();
+        }
+        public void UpdateUser(User user)
+        {
+            _userRepo().UpdateUser(user);
+        }
+
+        public void DeactivateUser(string id)
+        {
+            _userRepo().DeactivateUser(id);
+        }
+
+        public User GetUserByUsername(string username)
+        {
+            return _userRepo().GetUserByUsername(username);
+        }
     }
 }
